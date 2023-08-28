@@ -3,6 +3,11 @@ const path = require('path');
 
 let app = express();
 
+app.use((req, res, next) => {
+    console.log(req.originalUrl);
+    next();
+});
+
 app.get('/', (req, res, next) => {
     res.send('Hello from the server side...');
 });
